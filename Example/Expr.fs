@@ -6,10 +6,10 @@ open Teq
 //In each DU case where we want to further constrain the generic argument 'a,
 //we use a Teq to do so.
 type Expr<'a> =
-| Const of Teq<int,'a>*int
-| Add of Teq<int,'a>*Expr<int>*Expr<int>
-| IsZero of Teq<bool,'a>*Expr<int>
-| If of Expr<bool>*Expr<'a>*Expr<'a>
+| Const of Teq<int,'a> * int
+| Add of Teq<int,'a> * Expr<int> * Expr<int>
+| IsZero of Teq<bool,'a> * Expr<int>
+| If of Expr<bool> * Expr<'a> * Expr<'a>
 
 //As creating GADTs directly involves lots of uses of Teq.refl,
 //we create a module of easy-to-use constructor functions.

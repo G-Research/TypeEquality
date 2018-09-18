@@ -6,6 +6,7 @@ type Teq<'a, 'b> = private Teq of ('a -> 'b) * ('b -> 'a)
 /// Module for creating and using type equalities, primarily useful for Generalised Algebraic Data Types (GADTs)
 /// Invariant: If you use this module (without reflection shenanigans) and the
 /// code builds, it will be correct.
+[<RequireQualifiedAccess>]
 module Teq =
 
     /// The single constructor for Teq - witnesses equality between 'a and 'a
@@ -19,11 +20,11 @@ module Teq =
     /// If you always do this followed by a cast, you may as well just use castFrom
     let symmetry (Teq (ab, ba)) = Teq (ba, ab)
 
-    /// Let's compose two type-equalities: a = b && b = c => a = b
+    /// Let's compose two type-equalities: a = b && b = c => a = c
     let transitivity (Teq (ab, ba) : Teq<'a,'b>) (Teq (bc, cb) : Teq<'b,'c>) : Teq<'a,'c> =
         // Obviously more efficient with a believeMe as below, but we like type
         // safety and this *can* be proven in the F# type system
-        Teq (ab>>bc, cb>>ba)
+        Teq (ab >> bc, cb >> ba)
 
     /// Converts an 'a to a 'b
     let cast (Teq (f, _)) a = f a
@@ -54,6 +55,7 @@ module Teq =
     /// consumers to shoot themselves in the foot).
     ///
     /// tl;dr - Lets you take a Teq in hand and safely convert it into a different Teq
+    [<RequireQualifiedAccess>]
     module Cong =
 
         /// Clearly unsafe in general, but safe if we know 'a = 'b (which the Teq proves),
