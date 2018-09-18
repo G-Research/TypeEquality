@@ -11,6 +11,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Teq.fsi" />
     <Compile Include="Teq.fs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)'=='.NETFramework'">
