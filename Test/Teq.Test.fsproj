@@ -21,6 +21,6 @@
     <PackageReference Include="FSharp.Core" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Teq.fsproj" />
+    <ProjectReference Include="..\Teq\Teq.fsproj" />
   </ItemGroup>
 </Project>
