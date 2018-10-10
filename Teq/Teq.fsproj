@@ -7,6 +7,15 @@
     <DebugSymbols>true</DebugSymbols>
     <Tailcalls>true</Tailcalls>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Version>0.0.1</Version>
+    <Company>G-Research</Company>
+    <Authors>G-Research</Authors>
+    <Product>TypeEquality</Product>
+    <Description>Type equalities for F#.  These equalities allow us to create type-safe abstractions by allowing us to encode Generalised Algebraic Data Types (GADTs), as found in languages like Haskell.</Description>
+    <Copyright>Copyright G-Research 2018</Copyright>
+    <PackageProjectUrl>https://github.com/G-Research/Teq</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <PackageTags>gresearch g-research .net c#</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Teq.fsi" />
