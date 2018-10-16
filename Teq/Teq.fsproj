@@ -15,7 +15,7 @@
     <Copyright>Copyright G-Research 2018</Copyright>
     <PackageProjectUrl>https://github.com/G-Research/Teq</PackageProjectUrl>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <PackageTags>gresearch g-research .net c#</PackageTags>
+    <PackageTags>gresearch g-research .net f#</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Teq.fsi" />
