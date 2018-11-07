@@ -2,9 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TypeEquality", "TypeEquality/TypeEquality.fsproj", "{AFC054F9-8300-494F-A959-6ABABEB4C4B6}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Teq.Test", "Test\Teq.Test.fsproj", "{4152B8C3-1F28-45EB-92C2-CED0D990B603}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TypeEquality.Test", "Test\TypeEquality.Test.fsproj", "{4152B8C3-1F28-45EB-92C2-CED0D990B603}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Teq.Example", "Example\Teq.Example.fsproj", "{B5D3307D-D216-4723-9151-A5F1B1015DDB}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TypeEquality.Example", "Example\TypeEquality.Example.fsproj", "{B5D3307D-D216-4723-9151-A5F1B1015DDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
