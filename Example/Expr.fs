@@ -1,6 +1,6 @@
 ﻿namespace Teq.Example
 
-open Teq
+open TypeEquality
 
 //We define a GADT by defining a generic type.
 //In each DU case where we want to further constrain the generic argument 'a,
