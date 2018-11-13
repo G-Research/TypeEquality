@@ -1,4 +1,4 @@
-﻿namespace Teq.Example
+﻿namespace TypeEquality.Example
 
 open TypeEquality
 

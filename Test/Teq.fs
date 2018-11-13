@@ -1,4 +1,4 @@
-﻿namespace Teq.Test
+﻿namespace TypeEquality.Test
 
 open TypeEquality
 
