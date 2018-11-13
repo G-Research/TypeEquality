@@ -1,6 +1,6 @@
-﻿namespace Teq.Test
+﻿namespace TypeEquality.Test
 
-open Teq
+open TypeEquality
 
 open NUnit.Framework
 open FsUnitTyped

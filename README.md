@@ -9,8 +9,9 @@ Haskell.
 
 ## Usage
 
-To use Teq in your projects, you'll want to reference the main Teq
-project.  This project provides a type `Teq<'a,'b>` of proofs that `'a`
+To use Teq in your projects, you'll want to reference the main TypeEquality
+project.  The project is available as a nuget package - https://www.nuget.org/packages/TypeEquality.  
+This project provides a type `Teq<'a,'b>` of proofs that `'a`
 and `'b` are the same type. By including these in the declaration of a
 generic discriminated union, you can constrain the types each case
 applies to, encoding a GADT.
@@ -19,7 +20,7 @@ An example of this may be found in the Example folder.
 For more advanced usage, Teq also allows you to reason about Teqs
 using the functions in the Teq and Teq.Cong (congruence) modules.
 
-The library has some unit tests in the Test/Teq.Test.fsproj project.
+The library has some unit tests in the Test/TypeEquality.Test.fsproj project.
 
 ## Contributing
 
