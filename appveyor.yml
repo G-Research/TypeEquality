@@ -1,4 +1,4 @@
-version: 0.0.{build}-{branch}
+version: 0.0.{build}
 build_script:
 - cmd: dotnet build Teq.sln
 test_script:
