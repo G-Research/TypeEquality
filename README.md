@@ -2,6 +2,7 @@
 
 [![NuGet latest release](https://badgen.net/nuget/v/TypeEquality)](https://www.nuget.org/packages/TypeEquality)
 [![NuGet latest pre-release](https://badgen.net/nuget/v/TypeEquality/pre)](https://www.nuget.org/packages/TypeEquality)
+[![Build status](https://ci.appveyor.com/api/projects/status/xk2mp8igycy4avxd?svg=true)](https://ci.appveyor.com/project/G-Research/typeequality)
 
 ## Type equalities for F#
 
