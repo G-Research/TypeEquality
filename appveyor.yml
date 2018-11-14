@@ -2,4 +2,7 @@ version: 0.0.{build}
 build_script:
 - cmd: dotnet build Teq.sln
 test_script:
+- cmd: cd Test
+- cmd: nuget install Appveyor.TestLogger -Version 2.0.0
+- cmd: cd ..
 - cmd: dotnet test --logger:Appveyor Test
