@@ -1,5 +1,8 @@
 # Teq
 
+[![NuGet latest release](https://badgen.net/nuget/v/TypeEquality)](https://www.nuget.org/packages/TypeEquality)
+[![NuGet latest pre-release](https://badgen.net/nuget/v/TypeEquality/pre)](https://www.nuget.org/packages/TypeEquality)
+
 ## Type equalities for F#
 
 This library contains type equalities (Teqs) for F#.  These equalities
