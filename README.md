@@ -1,7 +1,7 @@
 # Teq
 
-[![NuGet latest release](https://img.shields.io/nuget/v/TypeEquality.svg)](https://www.nuget.org/packages/TypeEquality)
-[![NuGet latest pre-release](https://img.shields.io/nuget/vpre/TypeEquality.svg)](https://www.nuget.org/packages/TypeEquality)
+[![NuGet latest release](https://badgen.net/nuget/v/TypeEquality)](https://www.nuget.org/packages/TypeEquality)
+[![NuGet latest pre-release](https://badgen.net/nuget/v/TypeEquality/pre)](https://www.nuget.org/packages/TypeEquality)
 
 ## Type equalities for F#
 
