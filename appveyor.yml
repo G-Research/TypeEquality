@@ -1,0 +1,5 @@
+version: 0.0.{build}
+build_script:
+- cmd: dotnet build Teq.sln
+test_script:
+- cmd: dotnet test --test-adapter-path:. --logger:Appveyor Test
