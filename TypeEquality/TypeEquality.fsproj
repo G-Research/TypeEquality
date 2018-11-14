@@ -22,7 +22,7 @@
     <Compile Include="Teq.fs" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)'=='.NETFramework'">
-    <PackageReference Include="FSharp.Core" Version="4.0.0.1" />
+    <PackageReference Include="FSharp.Core" Version="4.4.1.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)'!='.NETFramework'">
     <PackageReference Include="FSharp.Core" Version="4.5.0" />
