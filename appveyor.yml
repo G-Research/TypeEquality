@@ -1,6 +1,6 @@
 version: 0.0.{build}
 build_script:
-- cmd: dotnet build Teq.sln
+- cmd: dotnet build TypeEquality.sln
 test_script:
 - cmd: cd Test
 - cmd: nuget install Appveyor.TestLogger -Version 2.0.0
