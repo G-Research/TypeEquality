@@ -15,6 +15,14 @@ module Teq =
     /// in F#, so we choose soundness over completeness here).
     let refl<'a> : Teq<'a,'a> = Teq (id, id)
 
+    /// Returns a Teq when the two type parameters have the same value,
+    /// otherwise returns None.
+    let tryRefl<'a, 'b> : Teq<'a,'b> option =
+        if typeof<'a> = typeof<'b> then
+            refl<'a> |> unbox |> Some
+        else
+            None
+
     /// Order isn't important
     /// a = b => b = a
     /// If you always do this followed by a cast, you may as well just use castFrom
