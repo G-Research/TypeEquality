@@ -53,10 +53,8 @@ module Teq =
     /// More efficient than mapping the application of the teq across the functor.
     /// i.e. Use Teq.Cong.list in preference to List.map (Teq.cast)
     ///
-    /// If you need to make your own Teq.Cong.foo for your own functor 'Foo<_>', then the onus
-    /// is on your to verify that doing that is sane, and to implement it yourself (since
-    /// exposing the unsafe functions used internally here would make it too easy for
-    /// consumers to shoot themselves in the foot).
+    /// If you need to make your own Teq.Cong.foo for your own functor 'Foo<_>' using believeMe,
+    /// then the onus is on you to verify that doing that is sane.
     [<RequireQualifiedAccess>]
     module Cong =
 
