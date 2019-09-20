@@ -45,6 +45,10 @@ module Teq =
     /// Equivalent to symmetry >> cast, but more efficient
     let castFrom (Teq (_, g)) b = g b
 
+    /// Utility function to map an object of one type using a mapping function
+    /// for a different type when we have a type equality between the two types
+    let mapAs (Teq (f, g)) h a = a |> f |> h |> g
+
     /// The Cong module (short for congruence) contains functions that
     /// allow you safely transform Teqs into other Teqs that logically follow.
     ///
