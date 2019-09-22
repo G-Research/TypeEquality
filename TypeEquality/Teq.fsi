@@ -38,6 +38,10 @@ module Teq =
     /// Equivalent to symmetry >> cast, but more efficient
     val castFrom : Teq<'a, 'b> -> ('b -> 'a)
 
+    /// Utility function to map an object of one type using a mapping function
+    /// for a different type when we have a type equality between the two types
+    val mapAs : Teq<'a, 'b> -> ('b -> 'b) -> 'a -> 'a
+
     /// The Cong module (short for congruence) contains functions that
     /// allow you safely transform Teqs into other Teqs that logically follow.
     ///
