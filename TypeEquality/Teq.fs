@@ -80,12 +80,24 @@ module Teq =
         let array<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a array, 'b array> =
             believeMe prf
 
+        /// Given a type equality between two array types, returns the type equality on the corresponding element types.
+        let arrayOf<'a, 'b> (prf : Teq<'a array, 'b array>) : Teq<'a, 'b> =
+            believeMe prf
+
         /// Given a type equality between two types, returns the type equality on the corresponding list types.
         let list<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a list, 'b list> =
             believeMe prf
 
+        /// Given a type equality between two list types, returns the type equality on the corresponding element types.
+        let listOf<'a, 'b> (prf : Teq<'a list, 'b list>) : Teq<'a, 'b> =
+            believeMe prf
+
         /// Given a type equality between two types, returns the type equality on the corresponding option types.
         let option<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a option, 'b option> =
+            believeMe prf
+
+        /// Given a type equality between two option types, returns the type equality on the corresponding element types.
+        let optionOf<'a, 'b> (prf : Teq<'a option, 'b option>) : Teq<'a, 'b> =
             believeMe prf
 
         /// Given a type equality between two types 'domain1 and 'domain2, returns the type equality

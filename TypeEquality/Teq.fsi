@@ -71,11 +71,20 @@ module Teq =
         /// Given a type equality between two types, returns the type equality on the corresponding array types.
         val array<'a, 'b> : Teq<'a, 'b> -> Teq<'a array, 'b array>
 
+        /// Given a type equality between two array types, returns the type equality on the corresponding element types.
+        val arrayOf<'a, 'b> : Teq<'a array, 'b array> -> Teq<'a, 'b>
+
         /// Given a type equality between two types, returns the type equality on the corresponding list types.
         val list<'a, 'b> : Teq<'a, 'b> -> Teq<'a list, 'b list>
 
+        /// Given a type equality between two list types, returns the type equality on the corresponding element types.
+        val listOf<'a, 'b> : Teq<'a list, 'b list> -> Teq<'a, 'b>
+
         /// Given a type equality between two types, returns the type equality on the corresponding option types.
         val option<'a, 'b> : Teq<'a, 'b> -> Teq<'a option, 'b option>
+
+        /// Given a type equality between two option types, returns the type equality on the corresponding element types.
+        val optionOf<'a, 'b> : Teq<'a option, 'b option> -> Teq<'a, 'b>
 
         /// Given a type equality between two types 'domain1 and 'domain2, returns the type equality
         /// on the function types ('domain1 -> 'range) and ('domain2 -> 'range), for any arbitrary 'range.
