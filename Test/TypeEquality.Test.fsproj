@@ -6,6 +6,7 @@
     <Tailcalls>true</Tailcalls>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>

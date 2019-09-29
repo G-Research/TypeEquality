@@ -5,6 +5,7 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
     <Tailcalls>true</Tailcalls>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Version>0.2.2</Version>
