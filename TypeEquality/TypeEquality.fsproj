@@ -22,10 +22,11 @@
     <Compile Include="Teq.fsi" />
     <Compile Include="Teq.fs" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFrameworkIdentifier)'=='.NETFramework'">
-    <PackageReference Include="FSharp.Core" Version="4.0.0.1" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <PackageReference Update="FSharp.Core" Version="4.0.0.1" />
+    <PackageReference Remove="System.ValueTuple" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFrameworkIdentifier)'!='.NETFramework'">
-    <PackageReference Include="FSharp.Core" Version="4.5.0" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Update="FSharp.Core" Version="4.5.0" />
   </ItemGroup>
 </Project>
