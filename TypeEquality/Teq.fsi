@@ -28,15 +28,15 @@ module Teq =
     val transitivity : Teq<'a, 'b> -> Teq<'b, 'c> -> Teq<'a, 'c>
 
     /// Converts an 'a to a 'b
-    val cast : Teq<'a, 'b> -> ('a -> 'b)
+    val cast : Teq<'a, 'b> -> 'a -> 'b
 
     /// Converts an 'a to a 'b
     /// Alias for cast
-    val castTo : Teq<'a, 'b> -> ('a -> 'b)
+    val castTo : Teq<'a, 'b> -> 'a -> 'b
 
     /// Converts a 'b to an 'a
     /// Equivalent to symmetry >> cast, but more efficient
-    val castFrom : Teq<'a, 'b> -> ('b -> 'a)
+    val castFrom : Teq<'a, 'b> -> 'b -> 'a
 
     /// Utility function to map an object of one type using a mapping function
     /// for a different type when we have a type equality between the two types
