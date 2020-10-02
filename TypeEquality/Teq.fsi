@@ -91,17 +91,20 @@ module Teq =
         val domain<'domain1, 'domain2, 'range> : Teq<'domain1, 'domain2> -> Teq<'domain1 -> 'range, 'domain2 -> 'range>
 
         /// Given a type equality between two function types, returns the type equality on their corresponding domains.
-        val domainOf<'domain1, 'domain2, 'range1, 'range2> : Teq<'domain1 -> 'range1, 'domain2 -> 'range2> -> Teq<'domain1, 'domain2>
+        val domainOf<'domain1, 'domain2, 'range1, 'range2> : Teq<'domain1 -> 'range1, 'domain2 -> 'range2>
+             -> Teq<'domain1, 'domain2>
 
         /// Given a type equality between two types 'range1 and 'range2, returns the type equality
         /// on the function types ('domain -> 'range1) and ('domain -> 'range2), for any arbitrary 'domain.
         val range<'domain, 'range1, 'range2> : Teq<'range1, 'range2> -> Teq<'domain -> 'range1, 'domain -> 'range2>
 
         /// Given a type equality between two function types, returns the type equality on their corresponding ranges.
-        val rangeOf<'domain1, 'domain2, 'range1, 'range2> : Teq<'domain1 -> 'range1, 'domain2 -> 'range2> -> Teq<'range1, 'range2>
+        val rangeOf<'domain1, 'domain2, 'range1, 'range2> : Teq<'domain1 -> 'range1, 'domain2 -> 'range2>
+             -> Teq<'range1, 'range2>
 
         /// Given a pair of type equalities, one for domains and one for ranges, returns the type equality for the corresponding function types.
-        val func<'domain1, 'range1, 'domain2, 'range2> : Teq<'domain1, 'domain2> -> Teq<'range1, 'range2> -> Teq<'domain1 -> 'range1, 'domain2 -> 'range2>
+        val func<'domain1, 'range1, 'domain2, 'range2> : Teq<'domain1, 'domain2>
+             -> Teq<'range1, 'range2> -> Teq<'domain1 -> 'range1, 'domain2 -> 'range2>
 
         /// Given a type equality between two types 'fst1 and 'fst2, returns the type equality
         /// on the pair types ('fst1 * 'snd) and ('fst2 * 'snd), for any arbitrary 'snd.
@@ -113,4 +116,5 @@ module Teq =
 
         /// Given a pair of type equalities, one for the first element of a pair and one for the second element of a pair,
         /// returns the type equality for the corresponding pair types.
-        val pair<'fst1, 'snd1, 'fst2, 'snd2> : Teq<'fst1, 'fst2> -> Teq<'snd1, 'snd2> -> Teq<'fst1 * 'snd1, 'fst2 * 'snd2>
+        val pair<'fst1, 'snd1, 'fst2, 'snd2> : Teq<'fst1, 'fst2>
+             -> Teq<'snd1, 'snd2> -> Teq<'fst1 * 'snd1, 'fst2 * 'snd2>

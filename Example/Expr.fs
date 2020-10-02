@@ -6,10 +6,10 @@ open TypeEquality
 // In each DU case where we want to further constrain the generic argument 'a,
 // we use a Teq to do so.
 type 'a Expr =
-| Const of Teq<int, 'a> * int
-| Add of Teq<int, 'a> * Expr<int> * Expr<int>
-| IsZero of Teq<bool, 'a> * Expr<int>
-| If of Expr<bool> * Expr<'a> * Expr<'a>
+    | Const of Teq<int, 'a> * int
+    | Add of Teq<int, 'a> * Expr<int> * Expr<int>
+    | IsZero of Teq<bool, 'a> * Expr<int>
+    | If of Expr<bool> * Expr<'a> * Expr<'a>
 
 // As creating GADTs directly involves lots of uses of Teq.refl,
 // we create a module of easy-to-use constructor functions.
@@ -26,7 +26,7 @@ module Expr =
         IsZero (Teq.refl, a)
 
     let ifExpr (condition : Expr<bool>) (t : Expr<'a>) (e : Expr<'a>) : Expr<'a> =
-        If(condition, t, e)
+        If (condition, t, e)
 
     // Recursive evaluation of expressions.
     let rec eval<'a> (e : Expr<'a>) : 'a =
@@ -46,13 +46,8 @@ module Expr =
             // Evaluating x gives us an int, comparing it to zero gives us
             // the bool we want.
             // Return it with Teq.cast as before.
-            eval x = 0
-            |> Teq.cast teq
-        | If(cond, t, e) ->
-            if eval cond then
-                eval t
-            else
-                eval e
+            eval x = 0 |> Teq.cast teq
+        | If (cond, t, e) -> if eval cond then eval t else eval e
 
 [<RequireQualifiedAccess>]
 module ExampleExprs =
@@ -61,4 +56,5 @@ module ExampleExprs =
     // let bad : Expr<bool> = Expr.constant 1
 
     // A valid expression:
-    let valid = Expr.add (Expr.constant 1) (Expr.constant 1)
+    let valid =
+        Expr.add (Expr.constant 1) (Expr.constant 1)

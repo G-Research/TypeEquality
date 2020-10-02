@@ -1,7 +1,7 @@
 ﻿namespace TypeEquality
 
 /// A type for witnessing type equality between 'a and 'b
-type Teq<'a, 'b> = private Teq of ('a -> 'b) * ('b -> 'a)
+type Teq<'a, 'b> = private | Teq of ('a -> 'b) * ('b -> 'a)
 
 /// Module for creating and using type equalities, primarily useful for Generalised Algebraic Data Types (GADTs)
 /// Invariant: If you use this module (without reflection shenanigans) and the
@@ -13,7 +13,8 @@ module Teq =
     /// It would be nice to accept any isomorphism (i.e. 1-1 mapping between
     /// values, but Refl is the only provably correct constructor we can create
     /// in F#, so we choose soundness over completeness here).
-    let refl<'a> : Teq<'a, 'a> = Teq (id, id)
+    let refl<'a> : Teq<'a, 'a> =
+        Teq (id, id)
 
     /// Returns a Teq when the two type parameters have the same value,
     /// otherwise returns None.
@@ -26,7 +27,8 @@ module Teq =
     /// Order isn't important
     /// a = b => b = a
     /// If you always do this followed by a cast, you may as well just use castFrom
-    let symmetry (Teq (ab, ba)) = Teq (ba, ab)
+    let symmetry (Teq (ab, ba)) =
+        Teq (ba, ab)
 
     /// Let's compose two type-equalities: a = b && b = c => a = c
     let transitivity (Teq (ab, ba) : Teq<'a, 'b>) (Teq (bc, cb) : Teq<'b, 'c>) : Teq<'a, 'c> =
@@ -47,7 +49,8 @@ module Teq =
 
     /// Utility function to map an object of one type using a mapping function
     /// for a different type when we have a type equality between the two types
-    let mapAs (Teq (f, g)) h a = a |> f |> h |> g
+    let mapAs (Teq (f, g)) h a =
+        a |> f |> h |> g
 
     /// The Cong module (short for congruence) contains functions that
     /// allow you safely transform Teqs into other Teqs that logically follow.
@@ -74,7 +77,8 @@ module Teq =
         /// this assumption is why we don't make this public). Examples of valid values for
         /// f include list, array and option.
         let believeMe<'a, 'b, 'a2, 'b2> (teq : Teq<'a, 'b>) : Teq<'a2, 'b2> =
-            unbox <| (refl : Teq<'a2, 'a2>)
+            unbox
+            <| (refl : Teq<'a2, 'a2>)
 
         /// Given a type equality between two types, returns the type equality on the corresponding array types.
         let array<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a array, 'b array> =
@@ -102,11 +106,17 @@ module Teq =
 
         /// Given a type equality between two types 'domain1 and 'domain2, returns the type equality
         /// on the function types ('domain1 -> 'range) and ('domain2 -> 'range), for any arbitrary 'range.
-        let domain<'domain1, 'domain2, 'range> (prf : Teq<'domain1, 'domain2>) : Teq<'domain1 -> 'range, 'domain2 -> 'range> =
+        let domain<'domain1, 'domain2, 'range>
+            (prf : Teq<'domain1, 'domain2>)
+            : Teq<'domain1 -> 'range, 'domain2 -> 'range>
+            =
             believeMe prf
 
         /// Given a type equality between two function types, returns the type equality on their corresponding domains.
-        let domainOf<'domain1, 'domain2, 'range1, 'range2> (prf: Teq<'domain1 -> 'range1, 'domain2 -> 'range2>) : Teq<'domain1, 'domain2> =
+        let domainOf<'domain1, 'domain2, 'range1, 'range2>
+            (prf : Teq<'domain1 -> 'range1, 'domain2 -> 'range2>)
+            : Teq<'domain1, 'domain2>
+            =
             believeMe prf
 
         /// Given a type equality between two types 'range1 and 'range2, returns the type equality
@@ -115,14 +125,19 @@ module Teq =
             believeMe prf
 
         /// Given a type equality between two function types, returns the type equality on their corresponding ranges.
-        let rangeOf<'domain1, 'domain2, 'range1, 'range2> (prf: Teq<'domain1 -> 'range1, 'domain2 -> 'range2>) : Teq<'range1, 'range2> =
+        let rangeOf<'domain1, 'domain2, 'range1, 'range2>
+            (prf : Teq<'domain1 -> 'range1, 'domain2 -> 'range2>)
+            : Teq<'range1, 'range2>
+            =
             believeMe prf
 
         /// Given a pair of type equalities, one for domains and one for ranges, returns the type equality for the corresponding function types.
-        let func<'domain1, 'range1, 'domain2, 'range2> (domainPrf : Teq<'domain1, 'domain2>) (rangePrf : Teq<'range1, 'range2>) : Teq<'domain1 -> 'range1, 'domain2 -> 'range2> =
-            transitivity
-                (domain domainPrf)
-                (range rangePrf)
+        let func<'domain1, 'range1, 'domain2, 'range2>
+            (domainPrf : Teq<'domain1, 'domain2>)
+            (rangePrf : Teq<'range1, 'range2>)
+            : Teq<'domain1 -> 'range1, 'domain2 -> 'range2>
+            =
+            transitivity (domain domainPrf) (range rangePrf)
 
         /// Given a type equality between two types 'fst1 and 'fst2, returns the type equality
         /// on the pair types ('fst1 * 'snd) and ('fst2 * 'snd), for any arbitrary 'snd.
@@ -136,7 +151,9 @@ module Teq =
 
         /// Given a pair of type equalities, one for the first element of a pair and one for the second element of a pair,
         /// returns the type equality for the corresponding pair types.
-        let pair<'fst1, 'snd1, 'fst2, 'snd2> (fstPrf : Teq<'fst1, 'fst2>) (sndPrf : Teq<'snd1, 'snd2>) : Teq<'fst1 * 'snd1, 'fst2 * 'snd2> =
-            transitivity
-                (fst fstPrf)
-                (snd sndPrf)
+        let pair<'fst1, 'snd1, 'fst2, 'snd2>
+            (fstPrf : Teq<'fst1, 'fst2>)
+            (sndPrf : Teq<'snd1, 'snd2>)
+            : Teq<'fst1 * 'snd1, 'fst2 * 'snd2>
+            =
+            transitivity (fst fstPrf) (snd sndPrf)

@@ -1,5 +1,7 @@
 version: 0.0.{build}
 build_script:
+- cmd: dotnet tool restore
+- cmd: dotnet fantomas . -r --check
 - cmd: dotnet build TypeEquality.sln
 test_script:
 - cmd: cd Test
