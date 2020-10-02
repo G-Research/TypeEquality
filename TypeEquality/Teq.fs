@@ -77,8 +77,7 @@ module Teq =
         /// this assumption is why we don't make this public). Examples of valid values for
         /// f include list, array and option.
         let believeMe<'a, 'b, 'a2, 'b2> (teq : Teq<'a, 'b>) : Teq<'a2, 'b2> =
-            unbox
-            <| (refl : Teq<'a2, 'a2>)
+            unbox (refl : Teq<'a2, 'a2>)
 
         /// Given a type equality between two types, returns the type equality on the corresponding array types.
         let array<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a array, 'b array> =
