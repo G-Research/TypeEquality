@@ -11,6 +11,11 @@ allow us to create type-safe abstractions by allowing us to encode
 Generalised Algebraic Data Types (GADTs), as found in languages like
 Haskell.
 
+Ralf Hinze explains the concepts of GADTs and phantom types in
+[_Fun with phantom types_](https://www.cs.ox.ac.uk/ralf.hinze/publications/With.pdf).
+In particular, _Section 7, "A type equality type"_, covers the role of a type
+equality in the encoding of GADTs.
+
 ## Usage
 
 To use Teqs in your projects, you'll want to reference the main TypeEquality
