@@ -41,7 +41,8 @@ module Teq =
 
     /// Converts an 'a to a 'b
     /// Alias for cast
-    let castTo teq a = cast teq a
+    let castTo teq a =
+        cast teq a
 
     /// Converts a 'b to an 'a
     /// Equivalent to symmetry >> cast, but more efficient
@@ -120,7 +121,10 @@ module Teq =
 
         /// Given a type equality between two types 'range1 and 'range2, returns the type equality
         /// on the function types ('domain -> 'range1) and ('domain -> 'range2), for any arbitrary 'domain.
-        let range<'domain, 'range1, 'range2> (prf : Teq<'range1, 'range2>) : Teq<'domain -> 'range1, 'domain -> 'range2> =
+        let range<'domain, 'range1, 'range2>
+            (prf : Teq<'range1, 'range2>)
+            : Teq<'domain -> 'range1, 'domain -> 'range2>
+            =
             believeMe prf
 
         /// Given a type equality between two function types, returns the type equality on their corresponding ranges.

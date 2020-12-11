@@ -13,3 +13,4 @@ fsharp_max_infix_operator_expression=30
 fsharp_max_function_binding_width=10
 fsharp_max_value_binding_width=10
 fsharp_max_if_then_else_short_width=20
+fsharp_multi_line_lambda_closing_newline=true
