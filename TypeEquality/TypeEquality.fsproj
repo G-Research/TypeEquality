@@ -21,6 +21,8 @@
   <ItemGroup>
     <Compile Include="Teq.fsi" />
     <Compile Include="Teq.fs" />
+    <EmbeddedResource Include="SurfaceBaseline.txt" />
+    <EmbeddedResource Include="version.json" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
     <PackageReference Update="FSharp.Core" Version="4.0.0.1" />

@@ -1,0 +1,26 @@
+TypeEquality.Teq inherit obj
+TypeEquality.Teq+Cong inherit obj
+TypeEquality.Teq+Cong.array [static method]: TypeEquality.Teq<'a, 'b> -> TypeEquality.Teq<'a [], 'b []>
+TypeEquality.Teq+Cong.arrayOf [static method]: TypeEquality.Teq<'a [], 'b []> -> TypeEquality.Teq<'a, 'b>
+TypeEquality.Teq+Cong.believeMe [static method]: TypeEquality.Teq<'a, 'b> -> TypeEquality.Teq<'a2, 'b2>
+TypeEquality.Teq+Cong.domain [static method]: TypeEquality.Teq<'domain1, 'domain2> -> TypeEquality.Teq<'domain1 -> 'range, 'domain2 -> 'range>
+TypeEquality.Teq+Cong.domainOf [static method]: TypeEquality.Teq<'domain1 -> 'range1, 'domain2 -> 'range2> -> TypeEquality.Teq<'domain1, 'domain2>
+TypeEquality.Teq+Cong.fst [static method]: TypeEquality.Teq<'fst1, 'fst2> -> TypeEquality.Teq<('fst1 * 'snd), ('fst2 * 'snd)>
+TypeEquality.Teq+Cong.func [static method]: TypeEquality.Teq<'domain1, 'domain2> -> TypeEquality.Teq<'range1, 'range2> -> TypeEquality.Teq<'domain1 -> 'range1, 'domain2 -> 'range2>
+TypeEquality.Teq+Cong.list [static method]: TypeEquality.Teq<'a, 'b> -> TypeEquality.Teq<'a list, 'b list>
+TypeEquality.Teq+Cong.listOf [static method]: TypeEquality.Teq<'a list, 'b list> -> TypeEquality.Teq<'a, 'b>
+TypeEquality.Teq+Cong.option [static method]: TypeEquality.Teq<'a, 'b> -> TypeEquality.Teq<'a option, 'b option>
+TypeEquality.Teq+Cong.optionOf [static method]: TypeEquality.Teq<'a option, 'b option> -> TypeEquality.Teq<'a, 'b>
+TypeEquality.Teq+Cong.pair [static method]: TypeEquality.Teq<'fst1, 'fst2> -> TypeEquality.Teq<'snd1, 'snd2> -> TypeEquality.Teq<('fst1 * 'snd1), ('fst2 * 'snd2)>
+TypeEquality.Teq+Cong.range [static method]: TypeEquality.Teq<'range1, 'range2> -> TypeEquality.Teq<'domain -> 'range1, 'domain -> 'range2>
+TypeEquality.Teq+Cong.rangeOf [static method]: TypeEquality.Teq<'domain1 -> 'range1, 'domain2 -> 'range2> -> TypeEquality.Teq<'range1, 'range2>
+TypeEquality.Teq+Cong.snd [static method]: TypeEquality.Teq<'snd1, 'snd2> -> TypeEquality.Teq<('fst * 'snd1), ('fst * 'snd2)>
+TypeEquality.Teq.cast [static method]: TypeEquality.Teq<'a, 'b> -> 'a -> 'b
+TypeEquality.Teq.castFrom [static method]: TypeEquality.Teq<'a, 'b> -> 'b -> 'a
+TypeEquality.Teq.castTo [static method]: TypeEquality.Teq<'a, 'b> -> 'a -> 'b
+TypeEquality.Teq.mapAs [static method]: TypeEquality.Teq<'a, 'b> -> ('b -> 'b) -> 'a -> 'a
+TypeEquality.Teq.refl [static method]: unit -> TypeEquality.Teq<'a, 'a>
+TypeEquality.Teq.symmetry [static method]: TypeEquality.Teq<'a, 'b> -> TypeEquality.Teq<'b, 'a>
+TypeEquality.Teq.transitivity [static method]: TypeEquality.Teq<'a, 'b> -> TypeEquality.Teq<'b, 'c> -> TypeEquality.Teq<'a, 'c>
+TypeEquality.Teq.tryRefl [static method]: unit -> TypeEquality.Teq<'a, 'b> option
+TypeEquality.Teq`2 inherit obj
