@@ -92,6 +92,58 @@ module Teq =
         let listOf<'a, 'b> (prf : Teq<'a list, 'b list>) : Teq<'a, 'b> =
             believeMe prf
 
+        /// Given a type equality between two types, returns the type equality on the corresponding set types.
+        let set<'a, 'b when 'a : comparison and 'b : comparison> (prf : Teq<'a, 'b>) : Teq<Set<'a>, Set<'b>> =
+            believeMe prf
+
+        /// Given a type equality between two set types, returns the type equality on the corresponding element types.
+        let setOf<'a, 'b when 'a : comparison and 'b : comparison> (prf : Teq<Set<'a>, Set<'b>>) : Teq<'a, 'b> =
+            believeMe prf
+
+        /// Given a type equality between two types, returns the type equality on the corresponding seq types.
+        let seq<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a seq, 'b seq> =
+            believeMe prf
+
+        /// Given a type equality between two seq types, returns the type equality on the corresponding element types.
+        let seqOf<'a, 'b> (prf : Teq<'a seq, 'b seq>) : Teq<'a, 'b> =
+            believeMe prf
+
+        /// Given a type equality between two types 'k1 and 'k2, returns the type equality
+        /// on the types Map<'k1, 'v> and Map<'k2, 'v>), for any arbitrary 'v.
+        let key<'k1, 'k2, 'v when 'k1 : comparison and 'k2 : comparison> (prf : Teq<'k1, 'k2>) : Teq<Map<'k1, 'v>, Map<'k2, 'v>> =
+            believeMe prf
+
+        /// Given a type equality between two types 'v1 and 'v2, returns the type equality
+        /// on the types Map<'k, 'v1> and Map<'k, 'v2>), for any arbitrary 'k.
+        let value<'v1, 'v2, 'k when 'k : comparison> (prf : Teq<'v1, 'v2>) : Teq<Map<'k, 'v1>, Map<'k, 'v2>> =
+            believeMe prf
+
+        /// Given a pair of type equalities, one for the keys of a Map and one for the values of a Map,
+        /// returns the type equality for the corresponding Map type.
+        let map<'k1, 'v1, 'k2, 'v2 when 'k1 : comparison and 'k2 : comparison> (keyPrf : Teq<'k1, 'k2>) (valuePrf : Teq<'v1, 'v2>) : Teq<Map<'k1, 'v1>, Map<'k2, 'v2>> =
+            transitivity
+                (key keyPrf)
+                (value valuePrf)
+
+#if !NETFRAMEWORK
+        /// Given a type equality between two types 'ok1 and 'ok2, returns the type equality
+        /// on the types Result<'ok1, 'error> and Result<'ok2, 'error>), for any arbitrary 'error.
+        let ok<'ok1, 'ok2, 'error> (prf : Teq<'ok1, 'ok2>) : Teq<Result<'ok1, 'error>, Result<'ok2, 'error>> =
+            believeMe prf
+
+        /// Given a type equality between two types 'error1 and 'error2, returns the type equality
+        /// on the types Result<'ok, 'error1> and Result<'ok, 'error2>), for any arbitrary 'ok.
+        let error<'error1, 'error2, 'ok> (prf : Teq<'error1, 'error2>) : Teq<Result<'ok, 'error1>, Result<'ok, 'error2>> =
+            believeMe prf
+
+        /// Given a pair of type equalities, one for the Ok element of a pair and one for the Error element of a pair,
+        /// returns the type equality for the corresponding Result type.
+        let result<'ok1, 'error1, 'ok2, 'error2> (okPrf : Teq<'ok1, 'ok2>) (errorPrf : Teq<'error1, 'error2>) : Teq<Result<'ok1, 'error1>, Result<'ok2, 'error2>> =
+            transitivity
+                (ok okPrf)
+                (error errorPrf)
+#endif
+
         /// Given a type equality between two types, returns the type equality on the corresponding option types.
         let option<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a option, 'b option> =
             believeMe prf
@@ -140,3 +192,11 @@ module Teq =
             transitivity
                 (fst fstPrf)
                 (snd sndPrf)
+
+        /// Given a type equality between two types, returns the type equality on the corresponding Async types.
+        let async<'a, 'b> (prf : Teq<'a, 'b>) : Teq<Async<'a>, Async<'b>> =
+            believeMe prf
+
+        /// Given a type equality between two Async types, returns the type equality on the corresponding return types.
+        let asyncOf<'a, 'b> (prf : Teq<Async<'a>, Async<'b>>) : Teq<'a, 'b> =
+            believeMe prf
