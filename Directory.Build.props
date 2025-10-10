@@ -1,0 +1,16 @@
+<Project>
+    <PropertyGroup>
+        <DebugType Condition=" '$(DebugType)' == '' ">embedded</DebugType>
+        <Deterministic>true</Deterministic>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <DebugType>embedded</DebugType>
+        <WarnOn>FS3388,FS3559</WarnOn>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Nerdbank.GitVersioning" Version="3.8.118" PrivateAssets="all"/>
+        <SourceLinkGitHubHost Include="github.com" ContentUrl="https://raw.githubusercontent.com"/>
+    </ItemGroup>
+    <PropertyGroup Condition="'$(GITHUB_ACTION)' != ''">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
+</Project>

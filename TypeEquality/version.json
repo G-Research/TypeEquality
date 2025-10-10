@@ -1,0 +1,11 @@
+{
+  "version": "0.4",
+  "publicReleaseRefSpec": [
+    "^refs/heads/master$"
+  ],
+  "pathFilters": [
+    "./",
+    ":/README.md",
+    ":/Directory.Build.props"
+  ]
+}

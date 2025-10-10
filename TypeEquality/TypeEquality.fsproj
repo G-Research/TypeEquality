@@ -1,32 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Tailcalls>true</Tailcalls>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>0.3.0</Version>
-    <Company>G-Research</Company>
-    <Authors>G-Research</Authors>
-    <Product>TypeEquality</Product>
-    <Description>Type equalities for F#.  These equalities allow us to create type-safe abstractions by allowing us to encode Generalised Algebraic Data Types (GADTs), as found in languages like Haskell.</Description>
-    <Copyright>Copyright G-Research 2018</Copyright>
-    <PackageProjectUrl>https://github.com/G-Research/Teq</PackageProjectUrl>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageTags>gresearch g-research .net f#</PackageTags>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Teq.fsi" />
-    <Compile Include="Teq.fs" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
-    <PackageReference Update="FSharp.Core" Version="4.0.0.1" />
-    <PackageReference Remove="System.ValueTuple" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Update="FSharp.Core" Version="4.5.0" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0</TargetFrameworks>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningLevel>4</WarningLevel>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Company>G-Research</Company>
+        <Authors>G-Research</Authors>
+        <Product>TypeEquality</Product>
+        <PackageId>TypeEquality</PackageId>
+        <Description>Type equalities for F#. These equalities allow us to create type-safe abstractions by allowing us to encode Generalised Algebraic Data Types (GADTs), as found in languages like Haskell.</Description>
+        <Copyright>Copyright G-Research 2018</Copyright>
+        <PackageProjectUrl>https://github.com/G-Research/Teq</PackageProjectUrl>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageTags>gresearch g-research .net f#</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Teq.fsi"/>
+        <Compile Include="Teq.fs"/>
+        <None Include="version.json"/>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Update="FSharp.Core" Version="4.5.0"/>
+    </ItemGroup>
 </Project>
