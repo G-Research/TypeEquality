@@ -132,7 +132,7 @@ module Teq =
 
         /// Given a type equality between two types 'error1 and 'error2, returns the type equality
         /// on the types Result<'ok, 'error1> and Result<'ok, 'error2>), for any arbitrary 'ok.
-        let error<'error1, 'error2, 'ok> (prf : Teq<'error1, 'error2>) : Teq<Result<'ok, 'error1>, Result<'ok, 'error2>> =
+        let resultError<'error1, 'error2, 'ok> (prf : Teq<'error1, 'error2>) : Teq<Result<'ok, 'error1>, Result<'ok, 'error2>> =
             believeMe prf
 
         /// Given a pair of type equalities, one for the Ok element of a pair and one for the Error element of a pair,
