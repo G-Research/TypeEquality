@@ -92,6 +92,37 @@ module Teq =
         let listOf<'a, 'b> (prf : Teq<'a list, 'b list>) : Teq<'a, 'b> =
             believeMe prf
 
+        let set<'a, 'b when 'a : comparison and 'b : comparison> (prf : Teq<'a, 'b>) : Teq<Set<'a>, Set<'b>> =
+            believeMe prf
+
+        let setOf<'a, 'b when 'a : comparison and 'b : comparison> (prf : Teq<Set<'a>, Set<'b>>) : Teq<'a, 'b> =
+            believeMe prf
+
+        let seq<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a seq, 'b seq> =
+            believeMe prf
+
+        let mapKey<'k1, 'k2, 'v when 'k1 : comparison and 'k2 : comparison> (prf : Teq<'k1, 'k2>) : Teq<Map<'k1, 'v>, Map<'k2, 'v>> =
+            believeMe prf
+
+        let mapValue<'v1, 'v2, 'k when 'k : comparison> (prf : Teq<'v1, 'v2>) : Teq<Map<'k, 'v1>, Map<'k, 'v2>> =
+            believeMe prf
+
+        let map<'k1, 'v1, 'k2, 'v2 when 'k1 : comparison and 'k2 : comparison> (keyPrf : Teq<'k1, 'k2>) (valuePrf : Teq<'v1, 'v2>) : Teq<Map<'k1, 'v1>, Map<'k2, 'v2>> =
+            transitivity
+                (mapKey keyPrf)
+                (mapValue valuePrf)
+
+        let resultOk<'ok1, 'ok2, 'error> (prf : Teq<'ok1, 'ok2>) : Teq<Result<'ok1, 'error>, Result<'ok2, 'error>> =
+            believeMe prf
+
+        let resultError<'error1, 'error2, 'ok> (prf : Teq<'error1, 'error2>) : Teq<Result<'ok, 'error1>, Result<'ok, 'error2>> =
+            believeMe prf
+
+        let result<'ok1, 'error1, 'ok2, 'error2> (okPrf : Teq<'ok1, 'ok2>) (errorPrf : Teq<'error1, 'error2>) : Teq<Result<'ok1, 'error1>, Result<'ok2, 'error2>> =
+            transitivity
+                (resultOk okPrf)
+                (resultError errorPrf)
+
         /// Given a type equality between two types, returns the type equality on the corresponding option types.
         let option<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a option, 'b option> =
             believeMe prf
@@ -140,3 +171,9 @@ module Teq =
             transitivity
                 (fst fstPrf)
                 (snd sndPrf)
+
+        let async<'a, 'b> (prf : Teq<'a, 'b>) : Teq<Async<'a>, Async<'b>> =
+            believeMe prf
+
+        let asyncOf<'a, 'b> (prf : Teq<Async<'a>, Async<'b>>) : Teq<'a, 'b> =
+            believeMe prf
