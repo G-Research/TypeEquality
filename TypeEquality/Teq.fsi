@@ -106,7 +106,7 @@ module Teq =
         val resultOk<'ok1, 'ok2, 'error> : Teq<'ok1, 'ok2> -> Teq<Result<'ok1, 'error>, Result<'ok2, 'error>>
 
         /// Given a type equality between two types 'error1 and 'error2, returns the type equality
-        /// on the types Result<'ok, 'error1> and Result<'ok, 'error2>), for any arbitrary 'ok.
+        /// on the types Result<'ok, 'error1> and Result<'ok, 'error2>, for any arbitrary 'ok.
         val resultError<'error1, 'error2, 'ok> : Teq<'error1, 'error2> -> Teq<Result<'ok, 'error1>, Result<'ok, 'error2>>
 
         /// Given a pair of type equalities, one for the Ok case and one for the Error case,
