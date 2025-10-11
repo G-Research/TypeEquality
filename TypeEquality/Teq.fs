@@ -115,7 +115,7 @@ module Teq =
 
         /// Given a type equality between two types 'v1 and 'v2, returns the type equality
         /// on the types Map<'k, 'v1> and Map<'k, 'v2>), for any arbitrary 'k.
-        let value<'v1, 'v2, 'k when 'k : comparison> (prf : Teq<'v1, 'v2>) : Teq<Map<'k, 'v1>, Map<'k, 'v2>> =
+        let mapValue<'v1, 'v2, 'k when 'k : comparison> (prf : Teq<'v1, 'v2>) : Teq<Map<'k, 'v1>, Map<'k, 'v2>> =
             believeMe prf
 
         /// Given a pair of type equalities, one for the keys of a Map and one for the values of a Map,
