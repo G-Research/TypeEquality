@@ -102,7 +102,7 @@ module Teq =
         val map<'k1, 'v1, 'k2, 'v2 when 'k1 : comparison and 'k2 : comparison> : Teq<'k1, 'k2> -> Teq<'v1, 'v2> -> Teq<Map<'k1, 'v1>, Map<'k2, 'v2>>
 
         /// Given a type equality between two types 'ok1 and 'ok2, returns the type equality
-        /// on the types Result<'ok1, 'error> and Result<'ok2, 'error>), for any arbitrary 'error.
+        /// on the types Result<'ok1, 'error> and Result<'ok2, 'error>, for any arbitrary 'error.
         val resultOk<'ok1, 'ok2, 'error> : Teq<'ok1, 'ok2> -> Teq<Result<'ok1, 'error>, Result<'ok2, 'error>>
 
         /// Given a type equality between two types 'error1 and 'error2, returns the type equality
