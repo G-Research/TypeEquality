@@ -128,7 +128,7 @@ module Teq =
 #if !NETFRAMEWORK
         /// Given a type equality between two types 'ok1 and 'ok2, returns the type equality
         /// on the types Result<'ok1, 'error> and Result<'ok2, 'error>), for any arbitrary 'error.
-        let ok<'ok1, 'ok2, 'error> (prf : Teq<'ok1, 'ok2>) : Teq<Result<'ok1, 'error>, Result<'ok2, 'error>> =
+        let resultOk<'ok1, 'ok2, 'error> (prf : Teq<'ok1, 'ok2>) : Teq<Result<'ok1, 'error>, Result<'ok2, 'error>> =
             believeMe prf
 
         /// Given a type equality between two types 'error1 and 'error2, returns the type equality
