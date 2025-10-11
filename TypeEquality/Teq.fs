@@ -104,10 +104,6 @@ module Teq =
         let seq<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a seq, 'b seq> =
             believeMe prf
 
-        /// Given a type equality between two seq types, returns the type equality on the corresponding element types.
-        let seqOf<'a, 'b> (prf : Teq<'a seq, 'b seq>) : Teq<'a, 'b> =
-            believeMe prf
-
         /// Given a type equality between two types 'k1 and 'k2, returns the type equality
         /// on the types Map<'k1, 'v> and Map<'k2, 'v>), for any arbitrary 'v.
         let mapKey<'k1, 'k2, 'v when 'k1 : comparison and 'k2 : comparison> (prf : Teq<'k1, 'k2>) : Teq<Map<'k1, 'v>, Map<'k2, 'v>> =
