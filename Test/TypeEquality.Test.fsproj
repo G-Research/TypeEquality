@@ -1,25 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;net461</TargetFrameworks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <Tailcalls>true</Tailcalls>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Teq.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
-    <PackageReference Include="FsUnit" Version="3.1.0" />
-    <PackageReference Include="NUnit" Version="3.10.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TypeEquality\TypeEquality.fsproj" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Teq.fs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="5.2.0"/>
+        <PackageReference Include="FsUnit" Version="7.1.1"/>
+        <PackageReference Include="NUnit" Version="4.4.0"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\TypeEquality\TypeEquality.fsproj"/>
+    </ItemGroup>
 </Project>

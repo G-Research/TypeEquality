@@ -1,18 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <DebugType>full</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Tailcalls>true</Tailcalls>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Expr.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TypeEquality\TypeEquality.fsproj" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Expr.fs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\TypeEquality\TypeEquality.fsproj"/>
+    </ItemGroup>
 </Project>
