@@ -90,7 +90,7 @@ module Teq =
         val seq<'a, 'b> : Teq<'a, 'b> -> Teq<'a seq, 'b seq>
 
         /// Given a type equality between two types 'k1 and 'k2, returns the type equality
-        /// on the types Map<'k1, 'v> and Map<'k2, 'v>), for any arbitrary 'v.
+        /// on the types Map<'k1, 'v> and Map<'k2, 'v>, for any arbitrary 'v.
         val mapKey<'k1, 'k2, 'v when 'k1 : comparison and 'k2 : comparison> : Teq<'k1, 'k2> -> Teq<Map<'k1, 'v>, Map<'k2, 'v>>
 
         /// Given a type equality between two types 'v1 and 'v2, returns the type equality
