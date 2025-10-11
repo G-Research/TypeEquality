@@ -141,7 +141,6 @@ module Teq =
             transitivity
                 (ok okPrf)
                 (error errorPrf)
-#endif
 
         /// Given a type equality between two types, returns the type equality on the corresponding option types.
         let option<'a, 'b> (prf : Teq<'a, 'b>) : Teq<'a option, 'b option> =
