@@ -23,6 +23,11 @@ module TestTeq =
         Assert.DoesNotThrow(fun () -> Teq.Cong.list t |> ignore)
 
     [<Test>]
+    let ``Cong.set does not throw`` () =
+        let t : Teq<int,int> = Teq.refl
+        Assert.DoesNotThrow(fun () -> Teq.Cong.set t |> ignore)
+
+    [<Test>]
     let ``Teq.tryRefl returns a Teq when the types match`` () =
         let t = Teq.tryRefl<int, int>
         t |> Option.isSome |> shouldEqual true
