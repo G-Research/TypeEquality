@@ -1,10 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
+        <OutputType>Exe</OutputType>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="Expr.fs"/>
+        <Compile Include="Lambda.fs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="5.2.0"/>
+        <PackageReference Include="FsUnit" Version="7.1.1"/>
+        <PackageReference Include="NUnit" Version="4.4.0"/>
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\TypeEquality\TypeEquality.fsproj"/>
