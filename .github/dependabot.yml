@@ -8,3 +8,7 @@ updates:
   ignore:
     # Target a low version of FSharp.Core, for max compat
     - dependency-name: "FSharp.Core"
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: "weekly"
